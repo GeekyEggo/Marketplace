@@ -1,0 +1,49 @@
+name: Govee Controller
+description: File a ticket for the Govee Controller plugin.
+labels:
+  - "govee-controller"
+  - "triage"
+
+body:
+  - type: checkboxes
+    id: pre-checks
+    attributes:
+      label: Pre-Checks
+      options:
+        - label: The device is connected to WiFi.
+          required: true
+        - label: The device is supported by [Govee's API](https://developer.govee.com/docs/support-product-model).
+          required: true
+
+  - type: dropdown
+    id: os
+    attributes:
+      label: Operating System
+      options:
+        - macOS
+        - Windows
+    validations:
+      required: true
+
+  - type: textarea
+    id: device
+    attributes:
+      label: Govee Device
+      description: The device model number, and the type of device, e.g. light-strip.
+    validations:
+      required: true
+
+  - type: textarea
+    id: description
+    attributes:
+      label: Description
+      description: Be descriptive as possible; for bugs, include replication steps to help resolve issues quicker.
+    validations:
+      required: true
+
+  - type: textarea
+    id: logs
+    attributes:
+      label: Logs
+      description: Attach logs from `%appdata%\Elgato\StreamDeck\Plugins\com.geekyeggo.goveecontroller.sdPlugin\win\logs`
+      render: bash
